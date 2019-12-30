@@ -7,9 +7,19 @@
   <body>
     <a-scene embedded arjs="debugUIEnabled: false;sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
       <a-assets>
+        <!-- 
+          Here, you need to put the video with the source URL
+          URL needs to be uploaded on any server local path will not work
+        -->
         <video id="what-car" autoplay="true" loop="true" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"></video>
         <video id="marker-2" autoplay="true" loop="true" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"></video>
       </a-assets>
+
+      <!--
+        Now we are placing the marker, when marker detected the video will be played as per the id of the video
+        For custom marker we need to put the url of the marker that needs to uploaded on the server you can create your own marker from https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html
+        you can upload this marker file on gihub and access it rom the github url
+      -->
       <a-marker preset="hiro">
         <a-entity scale="1 1 1" rotation="-90 0 0" crossOrigin="anonymous">
           <a-video play-on-scan src="#what-car" crossOrigin="anonymous"></a-video>
